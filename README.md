@@ -1,0 +1,1 @@
+Excersise with ExtJS. GUI for a data management application

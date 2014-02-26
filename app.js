@@ -35,7 +35,7 @@ Ext.application({
                     { text: 'Főmenü',                      
                       menu: { xtype: 'menu',
                               plain: true,
-                              items: {
+                              items: [{
                                 xtype: 'buttongroup',
                                 title: 'Szerkesztő módok',
                                 autoWidth: true,                   
@@ -44,13 +44,17 @@ Ext.application({
                                     scale: 'medium'
                                 },
                                 items: [{
-                                    text: 'Pártoló nézet',
-                                    handler: changeView
+                                    text: 'Pártoló nézet',                                    
+                                    handler: function() {
+                                        alert('You clicked me');
+                                    }
                                 },{
                                     text: 'Naptár nézet',
-                                    handler: changeView
+                                    handler: function() {
+                                        alert('You clicked me');
+                                    }
                                 }]
-                               }
+                               }]
                             }        
                     }        
                     ]        

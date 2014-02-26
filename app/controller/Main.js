@@ -28,17 +28,9 @@ Ext.define('sanghaSupporter.controller.Main', {
             'supportergrid': {
                 selectionchange: this.gridSelectionChange,
                 viewready: this.onViewReady
-            },
-            'menu': {
-                click: this.changeView
-            }                        
+            }                       
         });
-    },
-    
-    changeView: function() {
-        alert('You clicked me');
-    },
-    
+    },        
     applyFilter: function(n, records) {
         var selectedFilters = records[0].data.filters;
         this.getSupporterStore().clearFilter();
@@ -47,14 +39,12 @@ Ext.define('sanghaSupporter.controller.Main', {
             this.getSupporterStore().filter(selectedFilters);
         }
     },
-    
     gridSelectionChange: function(model, records) {
         
         if (records[0]) {
             this.getSupporterForm().loadRecord(records[0]);
         }
     },
-    
     onViewReady: function(grid) {
         grid.getSelectionModel().select(0);
     }       

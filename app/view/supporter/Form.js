@@ -27,7 +27,7 @@ Ext.define('sanghaSupporter.view.supporter.Form', {
            }, {
         xtype: 'combo',
         fieldLabel: 'Státusz',
-        hiddenName: 'status',       
+        name: 'status',       
         store: new Ext.data.SimpleStore ({
             data: [
                     ['supporter', 'Támogató'],
