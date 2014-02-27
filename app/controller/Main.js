@@ -28,9 +28,9 @@ Ext.define('sanghaSupporter.controller.Main', {
             'supportergrid': {
                 selectionchange: this.gridSelectionChange,
                 viewready: this.onViewReady
-            }                       
+            }                      
         });
-    },        
+    },  
     applyFilter: function(n, records) {
         var selectedFilters = records[0].data.filters;
         this.getSupporterStore().clearFilter();
