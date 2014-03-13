@@ -69,6 +69,7 @@ Ext.application({
         maxSize: 250
     }, {
         xtype: 'panel',
+        id: 'supporterPanel',
         collapsible: false,
         region:'center',
         margins: '5 0 0 0',
@@ -88,61 +89,13 @@ Ext.application({
     });  
     // This is the end of the supporterViewport
 
-    // This is the beginning of the calendarViewport
-    var calendarViewport = Ext.create('Ext.container.Viewport', {
-        padding: 0,
-        layout: {
-            type: 'border',
-            split: 'true',
-            bodyStyle: 'padding: 10px'
-        },
-        items: [{                   
-            region: 'north',
-            xtype : 'toolbar',
-            docked: 'top',                    
-            items : [
-            { xtype: 'tbtext', 
-            text: 'Pártolói Alkalmazás' },
-            { xtype: 'tbseparator' },
-            { text: 'Főmenü',                      
-            menu: { xtype: 'menu',
-            plain: true,
-            items: [{
-                xtype: 'buttongroup',
-                title: 'Szerkesztő módok',
-                autoWidth: true,                   
-                defaults: {
-                    xtype: 'button',
-                    scale: 'medium'
-                },
-                items: [{
-                    text: 'Pártoló nézet',
-                    handler: changeViewport,
-                    id: 'supporter-btn'                                    
-                },{
-                    text: 'Naptár nézet',
-                    handler: changeViewport,
-                    id: 'calendar-btn'                       
-                }]
-            }]
-                }        
-            }        
-            ]        
-            },
-
-
-        ]
-    });
-    // This is the end of the calendarViewport
-
     function changeViewport() {
         if (this.getId() === 'supporter-btn') {
-            calendarViewport.destroy();
-            supporterViewport.show();            
+           Ext.getCmp('#supporterPanel').show();
+           console.log('shooT');
         }
-        else {
-            supporterViewport.destroy();
-            calendarViewport.show();            
+        else {                      
+            Ext.getCmp('#supporterPanel').destroy();
         }
     }
 }    
