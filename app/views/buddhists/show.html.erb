@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @buddhist.status %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @buddhist.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @buddhist.email %>
+</p>
+
+<p>
+  <strong>Buzzer:</strong>
+  <%= @buddhist.buzzer_id %>
+</p>
+
+<p>
+  <strong>Telephone number:</strong>
+  <%= @buddhist.telephone_number %>
+</p>
+
+<p>
+  <strong>Program sms:</strong>
+  <%= @buddhist.program_sms %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @buddhist.address %>
+</p>
+
+<p>
+  <strong>Local center:</strong>
+  <%= @buddhist.local_center %>
+</p>
+
+<%= link_to 'Edit', edit_buddhist_path(@buddhist) %> |
+<%= link_to 'Back', buddhists_path %>

@@ -1,1 +1,1 @@
-Excersise with ExtJS. GUI for a data management application
+Sangha supporter is an internal donation management application for the local buddhist center created in Ruby on Rails.

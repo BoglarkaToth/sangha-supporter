@@ -1,0 +1,48 @@
+<%= form_for(@buddhist) do |f| %>
+  <% if @buddhist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@buddhist.errors.count, "error") %> prohibited this buddhist from being saved:</h2>
+
+      <ul>
+      <% @buddhist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select(:status, options_for_select([['Tag','member'],['Pártoló','supporter'],['Inaktív','inactive']])) %>
+  </div>
+  <div class="field">
+    <%= f.label :buzzer_id %><br>
+    <%= f.number_field :buzzer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone_number %><br>
+    <%= f.text_field :telephone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :program_sms %><br>
+    <%= f.check_box :program_sms %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :local_center %><br>
+    <%= f.text_field :local_center %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

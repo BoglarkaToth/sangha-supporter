@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @payment.month %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @payment.currency %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @payment.payment_type %>
+</p>
+
+<p>
+  <strong>Payment method:</strong>
+  <%= @payment.payment_method %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @payment.comment %>
+</p>
+
+<p>
+  <strong>Library member:</strong>
+  <%= @payment.library_member %>
+</p>
+
+<p>
+  <strong>Bicycle member:</strong>
+  <%= @payment.bicycle_member %>
+</p>
+
+<p>
+  <strong>Gym member:</strong>
+  <%= @payment.gym_member %>
+</p>
+
+<p>
+  <strong>Parking motorbike:</strong>
+  <%= @payment.parking_motorbike %>
+</p>
+
+<p>
+  <strong>Parking car:</strong>
+  <%= @payment.parking_car %>
+</p>
+
+<p>
+  <strong>Buddhist:</strong>
+  <%= @payment.buddhist %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

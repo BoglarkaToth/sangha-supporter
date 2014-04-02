@@ -1,0 +1,41 @@
+<h1>Listing buddhists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Buzzer</th>
+      <th>Telephone number</th>
+      <th>Program sms</th>
+      <th>Address</th>
+      <th>Local center</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buddhists.each do |buddhist| %>
+      <tr>
+        <td><%= buddhist.status %></td>
+        <td><%= buddhist.name %></td>
+        <td><%= buddhist.email %></td>
+        <td><%= buddhist.buzzer_id %></td>
+        <td><%= buddhist.telephone_number %></td>
+        <td><%= buddhist.program_sms %></td>
+        <td><%= buddhist.address %></td>
+        <td><%= buddhist.local_center %></td>
+        <td><%= link_to 'Show', buddhist %></td>
+        <td><%= link_to 'Edit', edit_buddhist_path(buddhist) %></td>
+        <td><%= link_to 'Destroy', buddhist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Buddhist', new_buddhist_path %>
