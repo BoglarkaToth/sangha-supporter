@@ -7,7 +7,7 @@
 
 <p>
   <strong>Month:</strong>
-  <%= @payment.month %>
+  <%= @payment.month.to_formatted_s(:month_and_year) %>
 </p>
 
 <p>

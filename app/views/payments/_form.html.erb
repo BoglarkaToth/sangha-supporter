@@ -21,15 +21,15 @@
   </div>
   <div class="field">
     <%= f.label :currency %><br>
-    <%= f.text_field :currency %>
+    <%= f.select(:currency, options_for_select([['EUR','eur'],['HUF','huf']])) %>
   </div>
   <div class="field">
     <%= f.label :payment_type %><br>
-    <%= f.text_field :payment_type %>
+    <%= f.select(:payment_type, options_for_select([['Tag','member'],['Pártoló','supporter'],['Célzott','project']])) %>
   </div>
   <div class="field">
     <%= f.label :payment_method %><br>
-    <%= f.text_field :payment_method %>
+    <%= f.select(:payment_method, options_for_select([['Kézpénz','cash'],['Utalás','bank_transfer'],['Bankkártyás','credit_card']])) %>
   </div>
   <div class="field">
     <%= f.label :comment %><br>

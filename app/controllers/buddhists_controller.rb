@@ -10,6 +10,7 @@ class BuddhistsController < ApplicationController
   # GET /buddhists/1
   # GET /buddhists/1.json
   def show
+    @payments = Payment.where(:buddhist_id => params[:id])
   end
 
   # GET /buddhists/new
