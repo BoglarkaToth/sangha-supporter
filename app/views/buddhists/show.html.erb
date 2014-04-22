@@ -1,47 +1,79 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @buddhist.status %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @buddhist.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @buddhist.email %>
-</p>
-
-<p>
-  <strong>Buzzer:</strong>
-  <%= @buddhist.buzzer_id %>
-</p>
-
-<p>
-  <strong>Telephone number:</strong>
-  <%= @buddhist.telephone_number %>
-</p>
-
-<p>
-  <strong>Program sms:</strong>
-  <%= @buddhist.program_sms %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @buddhist.address %>
-</p>
-
-<p>
-  <strong>Local center:</strong>
-  <%= @buddhist.local_center %>
-</p>
-
+<div class="row">
+  <div class="col-sm-4">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Státusz</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.status %>
+          </div>
+      </div>
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Név</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.name %>
+          </div>
+      </div>
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Email</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.email %>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-4">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Csipogó</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.buzzer_id %>
+          </div>
+      </div>
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Telefonszám</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.telephone_number %>
+          </div>
+      </div>
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Program sms</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.program_sms %>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-4">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Cím</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.address %>
+          </div>
+      </div>
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Helyi centrum</h3>
+          </div>
+          <div class="panel-body">
+            <%= @buddhist.local_center %>
+          </div>
+      </div>
+  </div>
+</div>
 <% unless @payments.nil? %>
-  <table>
+  <div class="table-responsive">
+  <table class="table table-striped">
   <thead>
     <tr>
       <th>Amount</th>
@@ -75,14 +107,15 @@
         <td><%= payment.gym_member %></td>
         <td><%= payment.parking_motorbike %></td>
         <td><%= payment.parking_car %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', payment, class: 'btn btn-xs btn-info' %></td>
+        <td><%= link_to 'Edit', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 <% end %>
 
-<%= link_to 'Edit', edit_buddhist_path(@buddhist) %> |
+ |
 <%= link_to 'Back', buddhists_path %>
