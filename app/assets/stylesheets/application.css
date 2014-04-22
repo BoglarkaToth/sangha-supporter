@@ -11,3 +11,30 @@
  *= require_self
  *= require_tree .
  */
+
+ /* Dashboard CSS */
+ /*
+ * Base structure
+ */
+body {
+	padding-top: 51px;
+}
+#application-logo {
+	background: url(firewheel.png) no-repeat left center;
+	color: white;
+	font-style: italic;
+	margin-left: 1em;
+	padding-left: 2em;
+}
+.sidebar {
+    background-color: #F5F5F5;
+    border-right: 1px solid #EEEEEE;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 1em;
+    z-index: 1000;
+}
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+

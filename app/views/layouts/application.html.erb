@@ -1,14 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SanghaSupporter</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "bootstrap.min", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "bootstrap-theme.min", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="application-logo" href="#">Pártolói alkalmazás</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+</div>
+<div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><%= link_to 'Új buddhista', new_buddhist_path %></li>
+            <% if @buddhist %>
+            <li><%= link_to 'Budhista szerkesztése', edit_buddhist_path(@buddhist) %></li>
+            <% end %>
+          </ul>
 
-<%= yield %>
-
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul>
+        </div>
+        <div class="col-md-10 main">
+          <%= yield %>
+        </div>
+      </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
 </body>
 </html>

@@ -1,16 +1,16 @@
-<h1>Listing buddhists</h1>
-
-<table>
+<h2 class="sub-header">Buddhisták</h2>
+<div class="table-responsive">
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Status</th>
-      <th>Name</th>
+      <th>Státusz</th>
+      <th>Név</th>
       <th>Email</th>
-      <th>Buzzer</th>
-      <th>Telephone number</th>
+      <th>Csipogó</th>
+      <th>Telefonszám</th>
       <th>Program sms</th>
-      <th>Address</th>
-      <th>Local center</th>
+      <th>Cím</th>
+      <th>Centrum</th>
       <th></th>
       <th></th>
       <th></th>
@@ -28,14 +28,11 @@
         <td><%= buddhist.program_sms %></td>
         <td><%= buddhist.address %></td>
         <td><%= buddhist.local_center %></td>
-        <td><%= link_to 'Show', buddhist %></td>
-        <td><%= link_to 'Edit', edit_buddhist_path(buddhist) %></td>
-        <td><%= link_to 'Destroy', buddhist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Megmutat', buddhist, class: 'btn btn-xs btn-info' %></td>
+        <td><%= link_to 'Szerkeszt', edit_buddhist_path(buddhist), class: 'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Töröl', buddhist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Buddhist', new_buddhist_path %>
+</div>
