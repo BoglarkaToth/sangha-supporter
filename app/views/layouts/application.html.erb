@@ -11,7 +11,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= params[:controller] %>">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -39,7 +39,7 @@
         <div class="col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><%= link_to 'Új buddhista', new_buddhist_path %></li>
-            <% if @buddhist %>
+            <% if current_page?("/buddhists/show") %>
             <li><%= link_to 'Budhista szerkesztése', edit_buddhist_path(@buddhist) %></li>
             <% end %>
           </ul>

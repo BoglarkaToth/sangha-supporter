@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
+	<div class="col-sm-12">
+	<h1 class="page-header"><%= @buddhist.name %></h2>
+	<h2 class="sub-header"><%= @buddhist.email %></h2>
+	</div>
+</div>
+<div class="row">
   <div class="col-sm-4">
       <div class="panel panel-info">
           <div class="panel-heading">
@@ -11,30 +17,14 @@
       </div>
       <div class="panel panel-info">
           <div class="panel-heading">
-              <h3 class="panel-title">Név</h3>
-          </div>
-          <div class="panel-body">
-            <%= @buddhist.name %>
-          </div>
-      </div>
-      <div class="panel panel-info">
-          <div class="panel-heading">
-              <h3 class="panel-title">Email</h3>
-          </div>
-          <div class="panel-body">
-            <%= @buddhist.email %>
-          </div>
-      </div>
-  </div>
-  <div class="col-sm-4">
-      <div class="panel panel-info">
-          <div class="panel-heading">
               <h3 class="panel-title">Csipogó</h3>
           </div>
           <div class="panel-body">
             <%= @buddhist.buzzer_id %>
           </div>
       </div>
+  </div>
+  <div class="col-sm-4">
       <div class="panel panel-info">
           <div class="panel-heading">
               <h3 class="panel-title">Telefonszám</h3>
