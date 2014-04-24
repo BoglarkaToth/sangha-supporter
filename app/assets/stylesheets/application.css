@@ -35,6 +35,12 @@ body {
     padding: 1em;
     z-index: 1000;
 }
+.sidebar .nav-sidebar li a{
+    display: inline-block;
+    font-size:1.2em;
+    padding-left: 0;
+}
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 
 
