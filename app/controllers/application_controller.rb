@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def load_suggestions
-  	@suggestions = Buddhist.all
-  	render json: @suggestions
+  	@buddhists = Buddhist.all
+  	suggest = []
+  	@buddhists.each do |buddhist|
+  		suggest << {name: buddhist['name']}
+  	end
+  	render json: suggest
   end
 end
