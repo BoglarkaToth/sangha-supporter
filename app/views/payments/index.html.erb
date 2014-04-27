@@ -1,20 +1,20 @@
-<h1>Listing payments</h1>
-
-<table>
+<h2 class="sub-header">Befizetések</h2>
+<div class="table-responsive">
+<table class="table table-condensed table-striped table-hover">
   <thead>
     <tr>
-      <th>Amount</th>
-      <th>Month</th>
-      <th>Currency</th>
-      <th>Payment type</th>
-      <th>Payment method</th>
-      <th>Comment</th>
-      <th>Library member</th>
-      <th>Bicycle member</th>
-      <th>Gym member</th>
-      <th>Parking motorbike</th>
-      <th>Parking car</th>
-      <th>Buddhist</th>
+      <th>Összeg</th>
+      <th>Hónap</th>
+      <th>Pénznem</th>
+      <th>Befizetés jogcíme</th>
+      <th>Befizetés módja</th>
+      <th>Komment</th>
+      <th>Könyvtár</th>
+      <th>Kerékpár</th>
+      <th>Gym</th>
+      <th>Motor</th>
+      <th>Autó</th>
+      <th>Befizető</th>
       <th></th>
       <th></th>
       <th></th>
@@ -25,7 +25,7 @@
     <% @payments.each do |payment| %>
       <tr>
         <td><%= payment.amount %></td>
-        <td><%= payment.month %></td>
+        <td><%= payment.month.to_formatted_s(:month_and_year) %></td>
         <td><%= payment.currency %></td>
         <td><%= payment.payment_type %></td>
         <td><%= payment.payment_method %></td>
@@ -35,10 +35,10 @@
         <td><%= payment.gym_member %></td>
         <td><%= payment.parking_motorbike %></td>
         <td><%= payment.parking_car %></td>
-        <td><%= payment.buddhist %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= payment.buddhist.name %></td>
+        <td><%= link_to 'Megnéz', payment, class: 'btn btn-xs btn-info' %></td>
+        <td><%= link_to 'Szerkeszt', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Töröl', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

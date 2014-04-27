@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+	var buddhists = new Bloodhound({
+	  	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+	  	queryTokenizer: Bloodhound.tokenizers.whitespace,
+	  	prefetch: {
+			url: '/suggestions.json',
+			ttl: 0
+		}
+	});
+	buddhists.initialize();
+	$(".typeahead").typeahead(null, {
+		displayKey: 'name',
+		source: buddhists.ttAdapter()
+	});
+})

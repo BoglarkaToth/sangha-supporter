@@ -8,7 +8,7 @@ SanghaSupporter::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'buddhists#index'
-
+  get 'suggestions.json' => 'application#load_suggestions'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
