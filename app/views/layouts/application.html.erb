@@ -34,6 +34,7 @@
           <ul class="nav nav-sidebar">
             <li class="active"><%= link_to 'Új buddhista', new_buddhist_path %></li>
             <% if controller_name == "buddhists" && action_name == "show" %>
+
             <li><%= link_to 'Budhista szerkesztése', edit_buddhist_path(@buddhist) %></li>
             <li><%= link_to 'Buddhista törlése', @buddhist, method: :delete, data: { confirm: 'Are you sure?' }%></li>
             <% end %>
