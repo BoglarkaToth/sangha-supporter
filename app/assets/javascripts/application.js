@@ -28,4 +28,8 @@ $(document).ready(function(){
 		displayKey: 'name',
 		source: buddhists.ttAdapter()
 	});
+	$(document).on("click",".tt-suggestion",function(){
+
+		$('#autosearch').submit();
+	});
 })

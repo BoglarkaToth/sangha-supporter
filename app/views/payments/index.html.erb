@@ -35,7 +35,7 @@
         <td><%= payment.gym_member %></td>
         <td><%= payment.parking_motorbike %></td>
         <td><%= payment.parking_car %></td>
-        <td><%= payment.buddhist.name %></td>
+        <td><%= link_to payment.buddhist.name, buddhist_path(payment.buddhist), class: 'text-link-style' %></td>
         <td><%= link_to 'Megnéz', payment, class: 'btn btn-xs btn-info' %></td>
         <td><%= link_to 'Szerkeszt', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Töröl', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>

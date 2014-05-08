@@ -17,14 +17,14 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Vezérlőpult</a></li>
             <li><%= link_to "Buddhisták", buddhists_path %></li>
             <li><%= link_to "Befizetések", payments_path %></li>
             <li><a href="#">Gépház</a></li>
             <li><a href="#">Segítség</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control typeahead" placeholder="Search...">
+          <form class="navbar-form navbar-right" method="get" id="autosearch" action="/autosearch">
+            <input type="text" class="form-control typeahead" placeholder="Gyorskereső..." name="name"/>
           </form>
         </div>
 </div>

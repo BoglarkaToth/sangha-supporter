@@ -19,6 +19,14 @@
 body {
 	padding-top: 51px;
 }
+.text-link-style,
+.text-link-style:visited,
+.text-link-style:active,
+.text-link-style:hover {
+    background: none;
+    color: #2AABD2;
+    text-decoration: underline;
+}
 #application-logo {
 	background: url(firewheel.png) no-repeat left center;
 	color: white;
@@ -40,6 +48,28 @@ body {
     font-size:1.2em;
     padding-left: 0;
 }
+/* Autosearch */
+.tt-dropdown-menu {
+    background: white;
+    border: 1px solid #2AABD2;
+    border-radius: 4px;
+    padding: 5px;
+    min-width: 170px;
+    width: auto;
+}
+.tt-suggestion {
+    border-bottom: 1px solid #2AABD2;
+    cursor: pointer;
+    margin-bottom: 4px;
+    padding: 0px 4px;
+}
+.tt-suggestion:last-child {
+    border-bottom: none;
+}
+.tt-suggestion:hover {
+    background: #EDEDED;
+}
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 
 
