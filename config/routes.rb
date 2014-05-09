@@ -1,4 +1,5 @@
 SanghaSupporter::Application.routes.draw do
+  get "dashboard/index"
   resources :payments
 
   resources :buddhists
@@ -9,6 +10,7 @@ SanghaSupporter::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'buddhists#index'
   get 'suggestions.json' => 'application#load_suggestions'
+  get 'monthly-income-data.json' => 'dashboard#monthly_income_data'
   get '/autosearch' => 'buddhists#autosearch'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -62,21 +62,19 @@
   </div>
 </div>
 <% unless @payments.nil? %>
+  <h3>Befizetések</h3>
+  <h4 class="last-payment-info"><b>Utolsó befizetés:</b> <%= @payments.first.created_at.to_formatted_s(:year_month_day_hours) %> </h4>
   <div class="table-responsive">
   <table class="table table-striped">
   <thead>
     <tr>
-      <th>Amount</th>
-      <th>Currency</th>
-      <th>Month</th>
-      <th>Payment type</th>
-      <th>Payment method</th>
-      <th>Comment</th>
-      <th>Library member</th>
-      <th>Bicycle member</th>
-      <th>Gym member</th>
-      <th>Parking motorbike</th>
-      <th>Parking car</th>
+      <th>Befizetés időpontja</th>
+      <th>Összeg </th>
+      <th>Melyik hónapra</th>
+      <th>Befizetés típusa</th>
+      <th>Befizetés módja</th>
+      <th>Megjegyzés</th>
+      <th>Tagságok</th>
       <th></th>
       <th></th>
       <th></th>
@@ -86,26 +84,28 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.amount %></td>
-        <td><%= payment.currency %></td>
+        <td><%= payment.created_at.to_formatted_s(:year_month_day_hours) %></td>
+        <td><%= payment.amount %> <%= payment.currency %></td>
         <td><%= payment.month.to_formatted_s(:month_and_year) %></td>
         <td><%= payment.payment_type %></td>
         <td><%= payment.payment_method %></td>
         <td><%= payment.comment %></td>
-        <td><%= payment.library_member %></td>
-        <td><%= payment.bicycle_member %></td>
-        <td><%= payment.gym_member %></td>
-        <td><%= payment.parking_motorbike %></td>
-        <td><%= payment.parking_car %></td>
-        <td><%= link_to 'Show', payment, class: 'btn btn-xs btn-info' %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+        <td>
+        <span class="feature-icon library-member <%= payment.library_member %>"></span>
+        <span class="feature-icon bicycle-member <%= payment.bicycle_member %>"></span>
+        <span class="feature-icon gym-member <%= payment.gym_member %>"></span>
+        <span class="feature-icon motorbike-member <%= payment.parking_motorbike %>"></span>
+        <span class="feature-icon parking-member <%= payment.parking_car %>"></span>
+        </td>
+        <td><%= link_to 'Megnéz', payment, class: 'btn btn-xs btn-info' %></td>
+        <td><%= link_to 'Szerkeszt', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Töröl', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
 <% end %>
+<%= link_to 'Vissza a listához', buddhists_path, class: 'btn btn-medium btn-default' %>
+<%= link_to 'Új befizetés', new_payment_path(buddhist_id: @buddhist.id), class: 'btn btn-medium, btn-success' %>
 
- |
-<%= link_to 'Back', buddhists_path %>

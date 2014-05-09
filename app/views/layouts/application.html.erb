@@ -41,11 +41,17 @@
           </ul>
           <% if controller_name == "buddhists" && action_name == "show" %>
           <ul class="nav nav-sidebar">
-            <li><%= link_to 'Új befizetés', new_payment_path(buddhist_id: @buddhist.id)%></li>
+            <li><%= link_to 'Új befizetés', new_payment_path(buddhist_id: @buddhist.id) %></li>
           </ul>
           <% end %>
         </div>
         <div class="col-md-10 main">
+          <% flash.each do |type, message| %>
+            <div class="alert <%= bootstrap_class_for(type) %> fade in">
+              <button class="close" data-dismiss="alert">×</button>
+              <%= message %>
+            </div>
+          <% end %>
           <%= yield %>
         </div>
       </div>
@@ -57,5 +63,9 @@
 <%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
 <%= javascript_include_tag "typeahead.bundle.min", "data-turbolinks-track" => true %>
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<% if controller_name == "dashboard" %>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <%= javascript_include_tag "dashboard-reports", "data-turbolinks-track" => true %>
+<% end %>
 </body>
 </html>
