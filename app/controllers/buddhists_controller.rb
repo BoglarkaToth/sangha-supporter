@@ -11,11 +11,8 @@ class BuddhistsController < ApplicationController
   # GET /buddhists/1.json
   def show
     @payments = Payment.where(:buddhist_id => params[:id]).order(month: :desc)
-    if @payments.first.month < Time.now + 2.months
-        flash.now[:alert] = "Az elmúlt két hónapra még nem történt befizetés. Az utolsó hónap: #{@payments.first.month.to_formatted_s(:month_and_year )}"
-    end
+    !@payments.empty? ? @payments.first.month < Time.now - 2.months ? flash.now[:alert] = "Az elmúlt két hónapra még nem történt befizetés. Az utolsó hónap: #{@payments.first.month.to_formatted_s(:month_and_year )}" : true : true
   end
-
   # GET /buddhists/new
   def new
     @buddhist = Buddhist.new

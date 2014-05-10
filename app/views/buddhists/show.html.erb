@@ -61,7 +61,7 @@
       </div>
   </div>
 </div>
-<% unless @payments.nil? %>
+<% unless @payments.empty? %>
   <h3>Befizetések</h3>
   <h4 class="last-payment-info"><b>Utolsó befizetés:</b> <%= @payments.first.created_at.to_formatted_s(:year_month_day_hours) %> </h4>
   <div class="table-responsive">
