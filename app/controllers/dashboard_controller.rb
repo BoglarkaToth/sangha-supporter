@@ -10,6 +10,8 @@ class DashboardController < ApplicationController
   	member["name"] = 'member'
   	member["data"] = Array.new
   	@payments.each do |payment|
+      case payment.month
+      when 
   		member["data"].push << [payment['month'] => payment['amount']]
   	end
   	series << member
