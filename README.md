@@ -1,18 +1,12 @@
 
 # README
-
-* Ruby version: ruby 2.0.0p247
  
-### System dependencies
+#### System dependencies
+ - **Ruby version:** ruby 2.0.0p247
+ - **Rails version:** Rails4
 
-### Configuration
+#### How to run the test suite
 
-### Database creation
+#### Services (job queues, cache servers, search engines, etc.)
 
-### Database initialization
-
-### How to run the test suite
-
-### Services (job queues, cache servers, search engines, etc.)
-
-### Deployment instructions
+#### Deployment instructions
