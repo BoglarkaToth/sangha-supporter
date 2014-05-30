@@ -9,7 +9,7 @@ SanghaSupporter::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'buddhists#index'
+  root 'dashboard#index'
   get 'suggestions.json' => 'application#load_suggestions'
   get 'monthly-income-data.json' => 'dashboard#monthly_income_data'
   get '/autosearch' => 'buddhists#autosearch'

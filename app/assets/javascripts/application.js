@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require typeahead.bundle.min
 //= require_tree .
 $(document).ready(function(){
 	var buddhists = new Bloodhound({
