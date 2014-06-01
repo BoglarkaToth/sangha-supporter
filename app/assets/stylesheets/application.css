@@ -145,3 +145,15 @@ h4.last-payment-info .last-payment-warning {
 .feature-icon.parking-member.true{
     background: url(carpark-icon-active.png) no-repeat center center;
 }
+.tablehead-arrows {
+    color: #242424;
+}
+a.tablehead-arrows:hover,
+a.tablehead-arrows:active {
+    background: none;
+    text-decoration: none;
+    color: #2AABD2;
+}
+a.mini-v {
+    font-size: 11px;
+}

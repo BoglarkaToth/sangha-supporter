@@ -3,11 +3,16 @@
 <table class="table table-condensed table-striped table-hover">
   <thead>
     <tr>
-      <th>Összeg</th>
-      <th>Hónap</th>
-      <th>Pénznem</th>
-      <th>Befizetés jogcíme</th>
-      <th>Befizetés módja</th>
+      <th>Összeg <%= link_to '^', payments_path(:sorting => 'amount', :order => 'asc'), class: 'tablehead-arrows' %>
+                 <%= link_to 'v', payments_path(:sorting => 'amount', :order => 'desc'), class: 'tablehead-arrows mini-v' %></th>
+      <th>Hónap  <%= link_to '^', payments_path(:sorting => 'month', :order => 'asc'), class: 'tablehead-arrows' %>
+                 <%= link_to 'v', payments_path(:sorting => 'month', :order => 'desc'), class: 'tablehead-arrows mini-v' %></th>
+      <th>Pénznem  <%= link_to '^', payments_path(:sorting => 'currency', :order => 'asc'), class: 'tablehead-arrows' %>
+                   <%= link_to 'v', payments_path(:sorting => 'currency', :order => 'desc'), class: 'tablehead-arrows mini-v' %></th>
+      <th>Befizetés jogcíme  <%= link_to '^', payments_path(:sorting => 'payment_type', :order => 'asc'), class: 'tablehead-arrows' %>
+                             <%= link_to 'v', payments_path(:sorting => 'payment_type', :order => 'desc'), class: 'tablehead-arrows mini-v' %></th>
+      <th>Befizetés módja   <%= link_to '^', payments_path(:sorting => 'payment_method', :order => 'asc'), class: 'tablehead-arrows' %>
+                            <%= link_to 'v', payments_path(:sorting => 'payment_method', :order => 'desc'), class: 'tablehead-arrows mini-v' %></th>
       <th>Komment</th>
       <th>Könyvtár</th>
       <th>Kerékpár</th>
@@ -25,7 +30,7 @@
     <% @payments.each do |payment| %>
       <tr>
         <td><%= payment.amount %></td>
-        <td><%= payment.month.to_formatted_s(:month_and_year) %></td>
+        <td><%= link_to payment.month.to_formatted_s(:month_and_year), payments_path(:sort_by_month => payment.month), class: 'payment_table_month' %></td>
         <td><%= payment.currency %></td>
         <td><%= payment.payment_type %></td>
         <td><%= payment.payment_method %></td>

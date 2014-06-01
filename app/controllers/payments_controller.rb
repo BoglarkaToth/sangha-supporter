@@ -5,6 +5,12 @@ class PaymentsController < ApplicationController
   # GET /payments.json
   def index
     @payments = Payment.all
+    if params[:sorting]
+      @payments = Payment.order("#{params[:sorting]} #{params[:order]}")
+    end
+    if params[:sort_by_month]
+      @payments = Payment.where(:month => params[:sort_by_month].to_time)
+    end
   end
 
   # GET /payments/1
