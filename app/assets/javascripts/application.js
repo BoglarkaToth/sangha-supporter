@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= turbolinks
 //= require_tree .
 $(document).ready(function(){
 	var buddhists = new Bloodhound({
@@ -32,4 +33,4 @@ $(document).ready(function(){
 
 		$('#autosearch').submit();
 	});
-})
+});
