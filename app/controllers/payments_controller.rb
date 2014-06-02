@@ -18,6 +18,16 @@ class PaymentsController < ApplicationController
   # GET /payments/1.json
   def show
     authenticate
+    @changes = []
+    if @payment.versions
+        @payment.versions.each do | payment_version|
+            change = Hash.new
+            change['name'] = User.find(payment_version.whodunnit.to_i).email
+            change['timestamp'] = payment_version.created_at
+            change['event'] = payment_version.event
+            @changes << change
+        end
+    end
   end
 
   # GET /payments/new

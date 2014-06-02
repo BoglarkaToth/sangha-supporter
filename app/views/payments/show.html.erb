@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Amount:</strong>
   <%= @payment.amount %>
@@ -62,3 +61,12 @@
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', payments_path %>
+
+<h3>Történet</h3>
+<% unless @changes.empty? %>
+  <ol>
+  <% @changes.each do |change| %>
+      <li>Módosította: <%= change['name'] %>, ekkor: <%= change['timestamp'] %>, esemény: <%= change['event'] %></li>
+  <% end %>
+  </ol>
+<% end %>
