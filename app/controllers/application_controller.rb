@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   	@buddhists = Buddhist.all
   	suggest = []
   	@buddhists.each do |buddhist|
-  		suggest << {name: buddhist['name']}
+  		suggest << { label: buddhist['name'], value: buddhist['id'] }
   	end
   	render json: suggest
   end

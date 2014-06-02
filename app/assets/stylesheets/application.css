@@ -64,24 +64,32 @@ div.alert {
     padding-left: 0;
 }
 /* Autosearch */
-.tt-dropdown-menu {
+.ui-autocomplete {
     background: white;
     border: 1px solid #2AABD2;
     border-radius: 4px;
     padding: 5px;
     min-width: 170px;
-    width: auto;
+    max-width: 250px;
 }
-.tt-suggestion {
+.ui-menu-item {
     border-bottom: 1px solid #2AABD2;
     cursor: pointer;
     margin-bottom: 4px;
     padding: 0px 4px;
+    list-style: none;
 }
-.tt-suggestion:last-child {
+.ui-menu-item {
     border-bottom: none;
 }
-.tt-suggestion:hover {
+.ui-menu-item a,
+.ui-menu-item a:hover,
+.ui-menu-item a:active {
+    background: none;
+    display: block;
+    width: 100%;
+}
+.ui-menu-item:hover {
     background: #EDEDED;
 }
 /* Buddhista adatlap */

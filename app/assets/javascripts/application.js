@@ -11,27 +11,20 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery.turbolinks
-//= require jquery_ujs
 //= require turbolinks
-//= require typeahead.bundle.min
+//= require bootstrap.min
 //= require_tree .
 $(document).ready(function(){
-	var buddhists = new Bloodhound({
-	  	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-	  	queryTokenizer: Bloodhound.tokenizers.whitespace,
-	  	prefetch: {
-			url: '/suggestions.json',
-			ttl: 0
-		}
-	});
-	buddhists.initialize();
-	$(".typeahead").typeahead(null, {
-		displayKey: 'name',
-		source: buddhists.ttAdapter()
-	});
-	$(document).on("click",".tt-suggestion",function(){
-
-		$('#autosearch').submit();
-	});
+	var availableSuggestions = '/suggestions.json';
+	$( "#autocomplete" ).autocomplete({
+		source: availableSuggestions,
+		minLength: 2,
+		delay: 200
+	}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+		return $('<li>').append( '<a href="/buddhists/' + item.value + '">' + item.label + "</a>" ).appendTo( ul );
+	};
 });
+
+

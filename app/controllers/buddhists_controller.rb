@@ -62,11 +62,6 @@ class BuddhistsController < ApplicationController
     end
   end
 
-  def autosearch
-    @buddhist = Buddhist.find_by(:name => params[:name])
-    redirect_to buddhist_url(@buddhist)
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_buddhist
