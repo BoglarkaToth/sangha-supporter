@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
+    authenticate
     @report_year = params[:year]
   end
 

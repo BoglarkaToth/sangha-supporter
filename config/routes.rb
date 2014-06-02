@@ -1,8 +1,10 @@
 SanghaSupporter::Application.routes.draw do
+  devise_scope :user do
+    get '/sign_out' => 'devise/sessions#destroy'
+  end
   devise_for :users, controllers: { registrations: 'users/registrations'}
-  get "dashboard/index"
+  get 'dashboard/index'
   resources :payments
-
   resources :buddhists
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -12,7 +14,6 @@ SanghaSupporter::Application.routes.draw do
   root 'dashboard#index'
   get 'suggestions.json' => 'application#load_suggestions'
   get 'monthly-income-data.json' => 'dashboard#monthly_income_data'
-  get '/autosearch' => 'buddhists#autosearch'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

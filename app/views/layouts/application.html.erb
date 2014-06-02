@@ -15,6 +15,9 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
           <%= link_to "Pártolói alkalmazás", buddhists_path, id: "application-logo", class: "navbar-brand" %>
+          <% if current_user %>
+            <span class="user_info">Belépett felhasználó: <b class="<%= current_user.administrator %>"><%= current_user.email %></b></span>
+          <% end %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -22,7 +25,7 @@
             <li><%= link_to "Buddhisták", buddhists_path %></li>
             <li><%= link_to "Befizetések", payments_path %></li>
             <li><a href="#">Gépház</a></li>
-            <li><a href="#">Segítség</a></li>
+            <li><%= link_to "Kilépés", "/sign_out" %></li>
           </ul>
           <div class="ui-widget">
             <form class="navbar-form navbar-right" id="autosearch" class="ui-front" >

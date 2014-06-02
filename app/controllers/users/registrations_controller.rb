@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  prepend_before_filter :require_no_authentication, only: [ :new, :create, :cancel ]
+  prepend_before_filter :require_no_authentication, only: [ :create, :cancel ]
   prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
+  before_action :verify_admin
 
   # GET /resource/sign_up
   def new
@@ -75,6 +76,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def cancel
     expire_data_after_sign_in!
     redirect_to new_registration_path(resource_name)
+  end
+
+  private
+
+  def verify_admin
+    unless current_user && current_user.administrator == "true"
+      redirect_to(dashboard_index_path, alert: 'Hozzáférési jogokért fordulj az adminisztrátorhoz')
+    end
   end
 
   protected

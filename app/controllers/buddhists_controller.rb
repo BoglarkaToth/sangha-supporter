@@ -4,27 +4,33 @@ class BuddhistsController < ApplicationController
   # GET /buddhists
   # GET /buddhists.json
   def index
+    authenticate
     @buddhists = Buddhist.all
   end
 
   # GET /buddhists/1
   # GET /buddhists/1.json
   def show
+    authenticate
     @payments = Payment.where(:buddhist_id => params[:id]).order(month: :desc)
     !@payments.empty? ? @payments.first.month < Time.now - 2.months ? flash.now[:alert] = "Az elmúlt két hónapra még nem történt befizetés. Az utolsó hónap: #{@payments.first.month.to_formatted_s(:month_and_year )}" : true : true
   end
   # GET /buddhists/new
+
   def new
+    authenticate
     @buddhist = Buddhist.new
   end
 
   # GET /buddhists/1/edit
   def edit
+    authenticate
   end
 
   # POST /buddhists
   # POST /buddhists.json
   def create
+    authenticate
     @buddhist = Buddhist.new(buddhist_params)
 
     respond_to do |format|
@@ -41,6 +47,7 @@ class BuddhistsController < ApplicationController
   # PATCH/PUT /buddhists/1
   # PATCH/PUT /buddhists/1.json
   def update
+    authenticate
     respond_to do |format|
       if @buddhist.update(buddhist_params)
         format.html { redirect_to @buddhist, notice: 'Buddhist was successfully updated.' }
@@ -55,6 +62,7 @@ class BuddhistsController < ApplicationController
   # DELETE /buddhists/1
   # DELETE /buddhists/1.json
   def destroy
+    authenticate
     @buddhist.destroy
     respond_to do |format|
       format.html { redirect_to buddhists_url }
@@ -72,4 +80,5 @@ class BuddhistsController < ApplicationController
     def buddhist_params
       params.require(:buddhist).permit(:status, :name, :email, :buzzer_id, :telephone_number, :program_sms, :address, :local_center)
     end
+
 end

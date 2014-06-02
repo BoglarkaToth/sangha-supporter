@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
   	end
   	render json: suggest
   end
+
+  def authenticate
+      if !signed_in?
+      redirect_to(new_user_session_path)
+      end
+  end
+
 end

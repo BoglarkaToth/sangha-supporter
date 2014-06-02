@@ -4,6 +4,7 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
+    authenticate
     @payments = Payment.all
     if params[:sorting]
       @payments = Payment.order("#{params[:sorting]} #{params[:order]}")
@@ -16,10 +17,12 @@ class PaymentsController < ApplicationController
   # GET /payments/1
   # GET /payments/1.json
   def show
+    authenticate
   end
 
   # GET /payments/new
   def new
+    authenticate
     @payment = Payment.new
     if params[:buddhist_id]
       @buddhist = Buddhist.find(params[:buddhist_id])
@@ -28,11 +31,13 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1/edit
   def edit
+    authenticate
   end
 
   # POST /payments
   # POST /payments.json
   def create
+    authenticate
     @payment = Payment.new(payment_params)
 
     respond_to do |format|
@@ -49,6 +54,7 @@ class PaymentsController < ApplicationController
   # PATCH/PUT /payments/1
   # PATCH/PUT /payments/1.json
   def update
+    authenticate
     respond_to do |format|
       if @payment.update(payment_params)
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
@@ -63,6 +69,7 @@ class PaymentsController < ApplicationController
   # DELETE /payments/1
   # DELETE /payments/1.json
   def destroy
+    authenticate
     @payment.destroy
     respond_to do |format|
       format.html { redirect_to payments_url }
