@@ -18,6 +18,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1.json
   def show
     authenticate
+    @buddhist = Buddhist.find(@payment.buddhist_id)
     @changes = []
     if @payment.versions
         @payment.versions.each do | payment_version|
@@ -27,6 +28,7 @@ class PaymentsController < ApplicationController
             change['event'] = payment_version.event
             @changes << change
         end
+        @changes = @changes.reverse
     end
   end
 

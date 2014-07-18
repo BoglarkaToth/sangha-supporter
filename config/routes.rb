@@ -12,7 +12,6 @@ SanghaSupporter::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'dashboard#index'
-  get 'suggestions.json' => 'application#load_suggestions'
   get 'monthly-income-data.json' => 'dashboard#monthly_income_data'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

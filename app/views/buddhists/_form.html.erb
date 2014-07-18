@@ -1,4 +1,4 @@
-<%= form_for(@buddhist) do |f| %>
+<%= form_for @buddhist,  html: {role: "form", class: "form"} do |f| %>
   <% if @buddhist.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@buddhist.errors.count, "error") %> prohibited this buddhist from being saved:</h2>
@@ -10,39 +10,39 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'form-control'%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :status %><br>
-    <%= f.select(:status, options_for_select([['Tag','member'],['Pártoló','supporter'],['Inaktív','inactive']])) %>
+    <%= f.select(:status, options_for_select([['Tag','member'],['Pártoló','supporter'],['Inaktív','inactive']]), {}, {:class => 'form-control'}) %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :buzzer_id %><br>
-    <%= f.number_field :buzzer_id %>
+    <%= f.number_field :buzzer_id, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :telephone_number %><br>
-    <%= f.text_field :telephone_number %>
+    <%= f.text_field :telephone_number, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :program_sms %><br>
+  <div class="checkbox">
+    <%= f.label :program_sms %>
     <%= f.check_box :program_sms %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :local_center %><br>
-    <%= f.text_field :local_center %>
+    <%= f.text_field :local_center, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(class: 'btn btn-medium btn-success') %>
   </div>
 <% end %>

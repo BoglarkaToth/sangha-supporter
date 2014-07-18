@@ -1,4 +1,8 @@
 <h2 class="sub-header">Buddhisták</h2>
+<% if params[:search] %>
+  <h4>A keresésed erre a kulcsszóra: <span class="blue_highlight"><%= params[:search] %></span>, az alábbi eredményeket hozta: </h4>
+  <hr/>
+<% end %>
 <div class="table-responsive">
 <table class="table table-striped">
   <thead>
@@ -25,7 +29,7 @@
         <td><%= buddhist.email %></td>
         <td><%= buddhist.buzzer_id %></td>
         <td><%= buddhist.telephone_number %></td>
-        <td><%= buddhist.program_sms %></td>
+        <td><span class="icon-<%= buddhist.program_sms %> boolean-icon"></span></td>
         <td><%= buddhist.address %></td>
         <td><%= buddhist.local_center %></td>
         <td><%= link_to 'Befizet', new_payment_path(buddhist_id: buddhist.id), class: 'btn btn-xs btn-success' %></td>

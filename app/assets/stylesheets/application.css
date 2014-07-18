@@ -64,34 +64,17 @@ div.alert {
     padding-left: 0;
 }
 /* Autosearch */
-.ui-autocomplete {
-    background: white;
-    border: 1px solid #2AABD2;
-    border-radius: 4px;
-    padding: 5px;
-    min-width: 170px;
-    max-width: 250px;
-}
-.ui-menu-item {
-    border-bottom: 1px solid #2AABD2;
-    cursor: pointer;
-    margin-bottom: 4px;
-    padding: 0px 4px;
-    list-style: none;
-}
-.ui-menu-item {
-    border-bottom: none;
-}
-.ui-menu-item a,
-.ui-menu-item a:hover,
-.ui-menu-item a:active {
-    background: none;
+ #search-form {
     display: block;
-    width: 100%;
-}
-.ui-menu-item:hover {
-    background: #EDEDED;
-}
+    float: right;
+    margin: 0.7em 2em 0;
+ }
+ #search-form input[type=text] {
+    height: 2em;
+ }
+ .blue_highlight {
+    color: #2AABD2;
+ }
 /* Buddhista adatlap */
 .buddhist-data.inactive .panel-info .panel-heading {
     background: linear-gradient(to bottom, #FFFFFF 0px, #E0E0E0 100%);
@@ -122,6 +105,17 @@ h4.last-payment-info .last-payment-warning {
     margin: 0px 5px;
     vertical-align: middle;
     width:  22px;
+}
+.boolean-icon {
+    display: block;
+    height: 22px;
+    width: 22px;
+}
+.icon-true {
+    background: url(icon-true.png) no-repeat center center;
+}
+.icon-false {
+    background: url(icon-false.gif) no-repeat center center;
 }
 .feature-icon.library-member.false {
     background: url(library-icon.png) no-repeat center center;
@@ -177,4 +171,13 @@ a.mini-v {
 }
 .user_info b.true {
     color: #C12E2A;
+}
+.badge.create {
+    background: linear-gradient(to bottom, #5CB85C 0px, #419641 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.badge.update {
+    background: linear-gradient(to bottom, #5BC0DE 0px, #2AABD2 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.badge.destroy {
+    background: linear-gradient(to bottom, #FFFFFF 0px, #E0E0E0 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 }

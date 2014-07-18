@@ -81,7 +81,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def verify_admin
-    unless current_user && current_user.administrator == "true"
+    unless current_user && current_user.administrator
       redirect_to(dashboard_index_path, alert: 'Hozzáférési jogokért fordulj az adminisztrátorhoz')
     end
   end

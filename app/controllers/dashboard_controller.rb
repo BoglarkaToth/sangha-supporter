@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
   def index
     authenticate
     @report_year = params[:year]
+    @users = User.all
   end
 
   def monthly_income_data

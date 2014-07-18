@@ -1,6 +1,8 @@
 <h1>Editing buddhist</h1>
-
+<p id="notice"><%= notice %></p>
+<div class="row">
 <%= render 'form' %>
-
-<%= link_to 'Show', @buddhist %> |
-<%= link_to 'Back', buddhists_path %>
+</div>
+<hr/>
+<%= link_to 'Show', @buddhist, class: 'btn btn-xs btn-primary' %> |
+<%= link_to 'Back', buddhists_path, class: 'btn btn-xs btn-info' %>

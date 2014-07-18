@@ -1,4 +1,4 @@
-<%= form_for @payment, html: {role: "form"} do |f| %>
+<%= form_for @payment, html: {role: "form", class: "form"} do |f| %>
   <% if @payment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
@@ -11,53 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :amount %><br>
     <%= f.text_field :amount, class: "form-control" %>
   </div>
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :month %><br>
     <%= f.datetime_select :month, class: "form-control" %>
   </div>
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :currency %><br>
     <%= f.select(:currency,options_for_select([['EUR','eur'],['HUF','huf']]), {}, { :class => 'form-control' }) %>
   </div>
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :payment_type %><br>
     <%= f.select(:payment_type, options_for_select([['Tag','member'],['Pártoló','supporter'],['Célzott','project']]), {}, { :class => 'form-control' }) %>
   </div>
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :payment_method %><br>
     <%= f.select(:payment_method, options_for_select([['Kézpénz','cash'],['Utalás','bank_transfer'],['Bankkártyás','credit_card']]), {}, { :class => 'form-control' }) %>
   </div>
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :comment %><br>
     <%= f.text_field :comment, class: "form-control" %>
   </div>
   <div class="row">
-    <div class="field form-group col-xs-2">
+    <div class="form-group col-xs-2">
       <%= f.label :library_member %>
       <%= f.check_box :library_member %>
     </div>
-    <div class="field form-group col-xs-2">
+    <div class="form-group col-xs-2">
       <%= f.label :bicycle_member %>
       <%= f.check_box :bicycle_member %>
     </div>
-    <div class="field form-group col-xs-2">
+    <div class="form-group col-xs-2">
       <%= f.label :gym_member %>
       <%= f.check_box :gym_member %>
     </div>
-    <div class="field form-group col-xs-2">
+    <div class="form-group col-xs-2">
       <%= f.label :parking_motorbike %>
       <%= f.check_box :parking_motorbike %>
     </div>
-    <div class="field form-group col-xs-2">
+    <div class="form-group col-xs-2">
       <%= f.label :parking_car %>
       <%= f.check_box :parking_car %>
     </div>
   </div>
-  <div class="field form-group clearfix">
+  <div class="form-group clearfix">
     <% if @buddhist %>
       <%= f.hidden_field :buddhist_id, :value => @buddhist.id %>
       <%= @buddhist.name %>

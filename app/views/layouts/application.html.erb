@@ -28,9 +28,12 @@
             <li><%= link_to "Kilépés", "/sign_out" %></li>
           </ul>
           <div class="ui-widget">
-            <form class="navbar-form navbar-right" id="autosearch" class="ui-front" >
-              <input type="text" id="autocomplete" class="form-control typeahead" placeholder="Gyorskereső..." name="name"/>
-            </form>
+            <%= form_tag(buddhists_path, :method => "get", id: "search-form", class: "form-inline", role: "form") do %>
+              <div class="form-group">
+              <%= text_field_tag :search, params[:search], placeholder: "Keresés...", class: "form-control" %>
+              <%= submit_tag "Search", :name => nil, class: "btn btn-medium btn-primary" %>
+              </div>
+            <% end %>
           </div>
         </div>
 </div>
@@ -39,10 +42,16 @@
         <div class="col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><%= link_to 'Új buddhista', new_buddhist_path %></li>
+            <% if current_user && current_user.administrator %>
+              <li class="active"><%= link_to 'Új felhasználó', '/users/sign_up' %></li>
+            <% end %>
             <% if controller_name == "buddhists" && action_name == "show" %>
 
             <li><%= link_to 'Budhista szerkesztése', edit_buddhist_path(@buddhist) %></li>
             <li><%= link_to 'Buddhista törlése', @buddhist, method: :delete, data: { confirm: 'Are you sure?' }%></li>
+            <% end %>
+            <% if controller_name == "payments" && action_name == "show" %>
+            <li class="active"><%= link_to 'Új befizetés', new_payment_path(buddhist_id: @payment.buddhist_id) %></li>
             <% end %>
           </ul>
           <% if controller_name == "buddhists" && action_name == "show" %>

@@ -11,20 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap.min
 //= require_tree .
-$(document).ready(function(){
-	var availableSuggestions = '/suggestions.json';
-	$( "#autocomplete" ).autocomplete({
-		source: availableSuggestions,
-		minLength: 2,
-		delay: 200
-	}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-		return $('<li>').append( '<a href="/buddhists/' + item.value + '">' + item.label + "</a>" ).appendTo( ul );
-	};
-});
+
 
 

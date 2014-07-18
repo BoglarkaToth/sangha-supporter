@@ -5,7 +5,11 @@ class BuddhistsController < ApplicationController
   # GET /buddhists.json
   def index
     authenticate
-    @buddhists = Buddhist.all
+    if params[:search]
+      @buddhists = Buddhist.search_by_name(params[:search]).order("created_at DESC")
+    else
+      @buddhists = Buddhist.all.order('created_at DESC')
+    end
   end
 
   # GET /buddhists/1

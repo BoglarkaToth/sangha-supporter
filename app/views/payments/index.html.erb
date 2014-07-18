@@ -35,11 +35,11 @@
         <td><%= payment.payment_type %></td>
         <td><%= payment.payment_method %></td>
         <td><%= payment.comment %></td>
-        <td><%= payment.library_member %></td>
-        <td><%= payment.bicycle_member %></td>
-        <td><%= payment.gym_member %></td>
-        <td><%= payment.parking_motorbike %></td>
-        <td><%= payment.parking_car %></td>
+        <td><span class="feature-icon library-member <%= payment.library_member %>"></span></td>
+        <td><span class="feature-icon bicycle-member <%= payment.bicycle_member %>"></span></td>
+        <td><span class="feature-icon gym-member <%= payment.gym_member %>"></span></td>
+        <td><span class="feature-icon motorbike-member <%= payment.parking_motorbike %>"></span></td>
+        <td><span class="feature-icon parking-member <%= payment.parking_car %>"></span></td>
         <td><%= link_to payment.buddhist.name, buddhist_path(payment.buddhist), class: 'text-link-style' %></td>
         <td><%= link_to 'Megnéz', payment, class: 'btn btn-xs btn-info' %></td>
         <td><%= link_to 'Szerkeszt', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
@@ -51,4 +51,4 @@
 
 <br>
 
-<%= link_to 'New Payment', new_payment_path %>
+<%= link_to 'New Payment', new_payment_path, class: 'btn btn-xm btn-info' %>
