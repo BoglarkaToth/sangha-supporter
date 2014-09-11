@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 # User management
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -42,7 +43,7 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 # Use unicorn as the app server
 # gem 'unicorn'
 
