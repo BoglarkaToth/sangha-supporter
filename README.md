@@ -16,3 +16,5 @@
 #### Services (job queues, cache servers, search engines, etc.)
 
 #### Deployment instructions
+
+http://vast-tor-7154.herokuapp.com/
