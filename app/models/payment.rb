@@ -1,4 +1,3 @@
-class Payment < ActiveRecord::Base
-  has_paper_trail
-  belongs_to :buddhist
+class Payment < ApplicationRecord
+  belongs_to :user
 end

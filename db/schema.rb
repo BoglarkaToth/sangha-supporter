@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,68 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602150646) do
+ActiveRecord::Schema.define(version: 20170429145239) do
 
-  create_table "buddhists", force: true do |t|
-    t.string   "status"
-    t.string   "name"
-    t.string   "email"
-    t.integer  "buzzer_id"
-    t.string   "telephone_number"
-    t.boolean  "program_sms"
-    t.string   "address"
-    t.string   "local_center"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "payments", force: true do |t|
-    t.decimal  "amount"
-    t.datetime "month"
+  create_table "payments", force: :cascade do |t|
+    t.integer  "amount"
+    t.date     "payment_date"
     t.string   "currency"
     t.string   "payment_type"
     t.string   "payment_method"
     t.string   "comment"
-    t.boolean  "library_member"
-    t.boolean  "bicycle_member"
-    t.boolean  "gym_member"
-    t.boolean  "parking_motorbike"
-    t.boolean  "parking_car"
-    t.integer  "buddhist_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
-  add_index "payments", ["buddhist_id"], name: "index_payments_on_buddhist_id"
-
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "administrator"
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "access_token"
+    t.string   "token_data"
+    t.string   "phone"
+    t.text     "address"
+    t.string   "center"
+    t.string   "status"
+    t.string   "buzzer"
+    t.boolean  "lock"
+    t.datetime "access_token_created_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "versions", force: true do |t|
-    t.string   "item_type",  null: false
-    t.integer  "item_id",    null: false
-    t.string   "event",      null: false
-    t.string   "whodunnit"
-    t.text     "object"
-    t.datetime "created_at"
-  end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end

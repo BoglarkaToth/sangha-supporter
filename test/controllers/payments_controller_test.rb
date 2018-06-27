@@ -1,49 +1,38 @@
 require 'test_helper'
 
-class PaymentsControllerTest < ActionController::TestCase
+class PaymentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @payment = payments(:one)
   end
 
   test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:payments)
-  end
-
-  test "should get new" do
-    get :new
+    get payments_url, as: :json
     assert_response :success
   end
 
   test "should create payment" do
     assert_difference('Payment.count') do
-      post :create, payment: { amount: @payment.amount, bicycle_member: @payment.bicycle_member, buddhist_id: @payment.buddhist_id, comment: @payment.comment, currency: @payment.currency, gym_member: @payment.gym_member, library_member: @payment.library_member, month: @payment.month, parking_car: @payment.parking_car, parking_motorbike: @payment.parking_motorbike, payment_method: @payment.payment_method, payment_type: @payment.payment_type }
+      post payments_url, params: { payment: { amount: @payment.amount, comment: @payment.comment, currency: @payment.currency, date: @payment.date, method: @payment.method, type: @payment.type, user_id: @payment.user_id } }, as: :json
     end
 
-    assert_redirected_to payment_path(assigns(:payment))
+    assert_response 201
   end
 
   test "should show payment" do
-    get :show, id: @payment
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @payment
+    get payment_url(@payment), as: :json
     assert_response :success
   end
 
   test "should update payment" do
-    patch :update, id: @payment, payment: { amount: @payment.amount, bicycle_member: @payment.bicycle_member, buddhist_id: @payment.buddhist_id, comment: @payment.comment, currency: @payment.currency, gym_member: @payment.gym_member, library_member: @payment.library_member, month: @payment.month, parking_car: @payment.parking_car, parking_motorbike: @payment.parking_motorbike, payment_method: @payment.payment_method, payment_type: @payment.payment_type }
-    assert_redirected_to payment_path(assigns(:payment))
+    patch payment_url(@payment), params: { payment: { amount: @payment.amount, comment: @payment.comment, currency: @payment.currency, date: @payment.date, method: @payment.method, type: @payment.type, user_id: @payment.user_id } }, as: :json
+    assert_response 200
   end
 
   test "should destroy payment" do
     assert_difference('Payment.count', -1) do
-      delete :destroy, id: @payment
+      delete payment_url(@payment), as: :json
     end
 
-    assert_redirected_to payments_path
+    assert_response 204
   end
 end

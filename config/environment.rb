@@ -1,5 +1,6 @@
 # Load the Rails application.
-require File.expand_path('../application', __FILE__)
+require_relative 'application'
+require 'net/http'
 
 # Initialize the Rails application.
-SanghaSupporter::Application.initialize!
+Rails.application.initialize!
