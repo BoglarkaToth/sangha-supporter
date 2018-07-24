@@ -3,32 +3,31 @@
 # //TODO: This has to be modified as ExtJs UI is completely removed
 echo "################################################";
 echo "#                                              #";
-echo "#  Sencha ExtJs - Rails Management Tool v0.2   #";
-echo "#        from extjs-ui/ to /public             #";
+echo "#  React - Rails Management Tool v0.2          #";
+echo "#        from react-ui/ to /public             #";
 echo "#                                              #";
 echo "#  What would you like to build today?         #";
 echo "#                                              #";
-echo "#      1) Rails+Sencha                         #";
+echo "#      1) Rails+React (not working)            #";
 echo "#                                              #";
-echo "#      2) Run Sencha Watch only                #";
+echo "#      2) Run Node Server only                 #";
 echo "#                                              #";
 echo "################################################";
 echo "                                                ";
 select yn in "1" "2"; do
     case $yn in
         1)
-            cd extjs-ui/
-            sencha-6.2.1.29 app build
+            cd react-ui/
             cd ..
-            echo "Move to the public folder.";
-            cp -rf extjs-ui/build/production/DharmaCloud/* public/
+            echo "This functionality is not working yet.";
+            #cp -rf extjs-ui/build/production/DharmaCloud/* public/
             echo "Rails taking the stage...";
             rails s
             break;;
         2)
-            echo "ExtJs is taking the stage";
-            cd extjs-ui/
-            sencha-6.2.1.29 app watch
+            echo "React is taking the stage";
+            cd react-ui/
+            npm start
             cd ..
             break;;
     esac

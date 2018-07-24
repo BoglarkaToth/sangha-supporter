@@ -9,6 +9,8 @@ Dharmacloud is management application to manage various activities in the Diamon
 * The application UI used formerly ExtJs 6.0 with Sencha Cmd 6.1.2.15 which is being replaced with React and Redux
 
 ## Configuration
+Make sure that /config/oauth.yml exist as it is necessary for the SSO login.
+The correct formatting of oauth.yml can be found in /config/initializers/load_oauth_config.rb
 
 ### Deployment instructions
 Use the deployment script deployme.sh located in the main folder. After finishing deployment you will be located in the api_dharmacloud folder where you can lunch the server by *rails s*
@@ -16,7 +18,12 @@ Use the deployment script deployme.sh located in the main folder. After finishin
 ## Release notes
 
 #### Version 0.1.0
-* Basic user management
+* Basic user management (with DWB SSO)
 * Payment CRUD operations
 * TV Content
 * Main navigation 
+
+#### Version 0.0.1R
+
+The UI development has changed to React instead of ExtJs so we moved back from 0.1.0 to 0.0.1R as everything has to be reimplemented on the client side. The server side is in working condition and will not be touched. 
+
