@@ -1,0 +1,110 @@
+/**
+ * kagyu red (based on CMYK conversion, doesn't look like that though) #d90026
+ * really it's #d22238
+ * PT Sans instead of Myriad Pro. Closest font in Google Font
+ **/
+
+
+/* Basic text formatting */
+body {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 16px;
+    color: #727272;
+}
+
+a {
+    text-decoration: none;
+    color: #d22238;
+}
+p {
+    margin: 1em 0;
+}
+.unstyled-list {
+    list-style-type: none;
+}
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #d22238;
+    text-align: center;
+    margin: 1em 0 1em;
+}
+h3 {
+    font-size: 1.4em;
+    color: inherit;
+    text-align: center;
+    margin: 1em 0 1em;
+}
+h4 {
+    font-size: 1.6em;
+    color: #d22238;
+    text-align: left;
+    font-weight: bold;
+}
+ul,
+li {
+    margin-bottom: 0;
+}
+#logo-top {
+    border-bottom: 1px solid #d22238;
+    margin: 40px 0 15px;
+}
+#logo-top #dwb-logo {
+    width: 235px;
+    height: 47px;
+    background: url(assets/images/01-logo@2x-HU.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    position: absolute;
+    top: 5px;
+    right: 90px;
+    float: right;
+}
+/* top menu */
+.navbar-list {
+    margin: 0.8em 0;
+    height: 1.8em;
+}
+.navbar-list li:first-child {
+    margin-left: 0;
+}
+.navbar-list li {
+    list-style: none;
+    display: block;
+    float: left;
+    margin: 0em 1em;
+}
+.navbar-list li a {
+    text-decoration: none;
+    color: #727272;
+}
+@media only screen and (max-width: 600px) {
+    .navbar-list {
+        margin: 0.8em 0;
+        width: 100%;
+    }
+    .navbar-list li {
+        list-style: none;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: 0.25em 0;
+        border-bottom: 1px solid #efefef;
+        margin: 0;
+    }
+    .navbar-list li:last-child {
+        border: none;
+    }
+    .centered-text {
+        font-size: 1.2em;
+    }
+}
+.main-photo,
+.article-photo {
+    margin-bottom: 1em;
+    width: 100%;
+}
+.center-map {
+ width: 100%;
+}

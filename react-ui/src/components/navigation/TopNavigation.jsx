@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-    const topnavigation = () => {
+class TopNavigation extends Component {
+
+    state = {
+        menuItems : [
+             {title: 'Home', link: '#'},
+             {title: 'Users', link: '/users'},
+             {title: 'Payments', link: '/payments'}
+        ]
+    }
+    render() {
+        let items = '';
+        this.state.menuItems.forEach(element => {
+            items += '<li><a href="{element.link}">{element.title}</a></li>';
+        })
         return (
             <div>
                 <h1>Logo</h1>
                 <ul>
-                    <li>Menu</li>
+                    {items}
                 </ul>
             </div>
-        )
+        );
     };
-
-    export default topnavigation;
+}
+export default TopNavigation;

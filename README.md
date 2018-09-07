@@ -27,3 +27,11 @@ Use the deployment script deployme.sh located in the main folder. After finishin
 
 The UI development has changed to React instead of ExtJs so we moved back from 0.1.0 to 0.0.1R as everything has to be reimplemented on the client side. The server side is in working condition and will not be touched. 
 
+___
+
+### Useful resources and links
+* create-react-app: https://github.com/facebookincubator/create-react-app
+* Introducing JSX: https://reactjs.org/docs/introducing-jsx.html
+* Rendering Elements: https://reactjs.org/docs/rendering-elements.html
+* Components & Props: https://reactjs.org/docs/components-and-props.html
+* Listenable Events: https://reactjs.org/docs/events.html
