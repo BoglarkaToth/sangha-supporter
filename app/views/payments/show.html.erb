@@ -99,13 +99,4 @@
   </div>
 </div>
 <h3>Történet</h3>
-<% unless @changes.empty? %>
-  <div class="row">
-  <ol class="list-group">
-  <% @changes.each do |change| %>
-      <li class="list-group-item"> <strong>Módosította:</strong> <%= change['name'] %>, <strong>ekkor:</strong> <%= change['timestamp'] %>, <span class="badge <%= change['event'] %>"><%= change['event'] %></span></li>
-  <% end %>
-  </ol>
-  </div>
-<% end %>
 

@@ -1,82 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SanghaSupporter</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "bootstrap.min", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "bootstrap-theme.min", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" => true %>
   <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 </head>
 <body class="<%= params[:controller] %>">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-          <%= link_to "Pártolói alkalmazás", buddhists_path, id: "application-logo", class: "navbar-brand" %>
-          <% if current_user %>
-            <span class="user_info">Belépett felhasználó: <b class="<%= current_user.administrator %>"><%= current_user.email %></b></span>
-          <% end %>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Vezérlőpult", dashboard_index_path %></li>
-            <li><%= link_to "Buddhisták", buddhists_path %></li>
-            <li><%= link_to "Befizetések", payments_path %></li>
-            <li><a href="#">Gépház</a></li>
-            <li><%= link_to "Kilépés", "/sign_out" %></li>
-          </ul>
-          <div class="ui-widget">
-            <%= form_tag(buddhists_path, :method => "get", id: "search-form", class: "form-inline", role: "form") do %>
-              <div class="form-group">
-              <%= text_field_tag :search, params[:search], placeholder: "Keresés...", class: "form-control" %>
-              <%= submit_tag "Search", :name => nil, class: "btn btn-medium btn-primary" %>
-              </div>
-            <% end %>
+  <div class="navbar-header">
+    <%= link_to "Pártolói alkalmazás", buddhists_path, id: "application-logo", class: "navbar-brand" %>
+    <% if current_user %>
+        <span class="user_info">Belépett felhasználó: <b class="<%= current_user.administrator %>"><%= current_user.email %></b></span>
+    <% end %>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Vezérlőpult", dashboard_index_path %></li>
+      <li><%= link_to "Buddhisták", buddhists_path %></li>
+      <li><%= link_to "Befizetések", payments_path %></li>
+      <li><a href="#">Gépház</a></li>
+      <li><%= link_to "Kilépés", "/sign_out" %></li>
+    </ul>
+    <div class="ui-widget">
+      <%= form_tag(buddhists_path, :method => "get", id: "search-form", class: "form-inline", role: "form") do %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], placeholder: "Keresés...", class: "form-control" %>
+            <%= submit_tag "Search", :name => nil, class: "btn btn-medium btn-primary" %>
           </div>
-        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><%= link_to 'Új buddhista', new_buddhist_path %></li>
-            <% if current_user && current_user.administrator %>
-              <li class="active"><%= link_to 'Új felhasználó', '/users/sign_up' %></li>
-            <% end %>
-            <% if controller_name == "buddhists" && action_name == "show" %>
+  <div class="row">
+    <div class="col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><%= link_to 'Új buddhista', new_buddhist_path %></li>
+        <% if current_user && current_user.administrator %>
+            <li class="active"><%= link_to 'Új felhasználó', '/users/sign_up' %></li>
+        <% end %>
+        <% if controller_name == "buddhists" && action_name == "show" %>
 
             <li><%= link_to 'Budhista szerkesztése', edit_buddhist_path(@buddhist) %></li>
             <li><%= link_to 'Buddhista törlése', @buddhist, method: :delete, data: { confirm: 'Are you sure?' }%></li>
-            <% end %>
-            <% if controller_name == "payments" && action_name == "show" %>
+        <% end %>
+        <% if controller_name == "payments" && action_name == "show" %>
             <li class="active"><%= link_to 'Új befizetés', new_payment_path(buddhist_id: @payment.buddhist_id) %></li>
-            <% end %>
-          </ul>
-          <% if controller_name == "buddhists" && action_name == "show" %>
+        <% end %>
+      </ul>
+      <% if controller_name == "buddhists" && action_name == "show" %>
           <ul class="nav nav-sidebar">
             <li><%= link_to 'Új befizetés', new_payment_path(buddhist_id: @buddhist.id) %></li>
           </ul>
-          <% end %>
-        </div>
-        <div class="col-md-10 main">
-          <% flash.each do |type, message| %>
-            <div class="alert <%= bootstrap_class_for(type) %> fade in">
-              <button class="close" data-dismiss="alert">×</button>
-              <%= message %>
-            </div>
-          <% end %>
-          <%= yield %>
-        </div>
-      </div>
+      <% end %>
+    </div>
+    <div class="col-md-10 main">
+      <% flash.each do |type, message| %>
+          <div class="alert <%= bootstrap_class_for(type) %> fade in">
+            <button class="close" data-dismiss="alert">×</button>
+            <%= message %>
+          </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
 </div>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <% if controller_name == "dashboard" && action_name == "index" %>
-  <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 <% end %>
 </body>
 </html>

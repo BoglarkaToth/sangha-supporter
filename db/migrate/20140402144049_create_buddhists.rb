@@ -1,4 +1,4 @@
-class CreateBuddhists < ActiveRecord::Migration
+class CreateBuddhists < ActiveRecord::Migration[4.2]
   def change
     create_table :buddhists do |t|
       t.string :status

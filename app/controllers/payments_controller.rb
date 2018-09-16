@@ -19,17 +19,6 @@ class PaymentsController < ApplicationController
   def show
     authenticate
     @buddhist = Buddhist.find(@payment.buddhist_id)
-    @changes = []
-    if @payment.versions
-        @payment.versions.each do | payment_version|
-            change = Hash.new
-            change['name'] = User.find(payment_version.whodunnit.to_i).email
-            change['timestamp'] = payment_version.created_at
-            change['event'] = payment_version.event
-            @changes << change
-        end
-        @changes = @changes.reverse
-    end
   end
 
   # GET /payments/new
