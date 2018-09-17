@@ -11,10 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
 //= require turbolinks
-//= require jquery
-//= require jquery.turbolinks
-//= require turbolinks
-//= require bootstrap.min
+//= require jquery-ui
+// IMPORTANT: APP CONFIG
+//= require app.config.seed
+
+// BOOTSTRAP JS
+//= require bootstrap/bootstrap
+
+// MAIN APP JS FILE
+//= require app.seed
 //= require_tree .

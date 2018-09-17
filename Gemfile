@@ -7,7 +7,6 @@ ruby '2.4.0'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-#gem 'pg'
 
 
 # User management
@@ -66,3 +65,15 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+group :production do
+  # Use postgresql for production, as it is required by heroku
+  gem 'pg'
+end
+
+gem 'jquery-ui-rails'
+gem 'ckeditor'
+
+# I18n
+gem 'gettext_i18n_rails'
