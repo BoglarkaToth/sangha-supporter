@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'miscellaneous#blank_page'
+  root 'dashboard#index'
   #root 'dashboard#index'
   get 'monthly-income-data.json' => 'dashboard#monthly_income_data'
   # Miscellaneous

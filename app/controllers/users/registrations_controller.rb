@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  prepend_before_filter :require_no_authentication, only: [ :cancel ]
-  prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
+  prepend_before_action :require_no_authentication, only: [ :cancel ]
+  prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy]
   before_action :verify_admin
 
   # GET /resource/sign_up
@@ -12,7 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-
     resource_saved = resource.save
     yield resource if block_given?
     if resource_saved

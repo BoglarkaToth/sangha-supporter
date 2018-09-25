@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   def authenticate
     if !signed_in?
       redirect_to(new_user_session_path)
+    else
+      @current_user = current_user
     end
   end
 end

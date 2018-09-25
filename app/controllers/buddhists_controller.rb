@@ -35,8 +35,12 @@ class BuddhistsController < ApplicationController
   # POST /buddhists.json
   def create
     authenticate
+    # TODO: Connect user with buddhist by email or figure out something what to do with this :)
     @buddhist = Buddhist.new(buddhist_params)
-
+    @user = User.find_by email: @buddhist.email
+    if @user
+      @buddhist.user_id = @user.id
+    end
     respond_to do |format|
       if @buddhist.save
         format.html { redirect_to @buddhist, notice: 'Buddhist was successfully created.' }
@@ -82,7 +86,7 @@ class BuddhistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def buddhist_params
-      params.require(:buddhist).permit(:status, :name, :email, :buzzer_id, :telephone_number, :program_sms, :address, :local_center)
+      params.require(:buddhist).permit(:status, :name, :email, :buzzer_id, :telephone_number, :program_sms, :address, :local_center, :user_id)
     end
 
 end

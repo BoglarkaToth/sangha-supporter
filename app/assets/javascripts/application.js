@@ -12,12 +12,25 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
 //= require jquery-ui
 // IMPORTANT: APP CONFIG
 //= require app.config.seed
 
 // BOOTSTRAP JS
 //= require bootstrap/bootstrap
+
+// CUSTOM NOTIFICATION
+//= require notification/SmartNotification
+
+// JARVIS WIDGETS
+//= require smartwidgets/jarvis.widget
+
+// JQUERY VALIDATE
+//= require plugin/jquery-validate/jquery.validate
+
+// JQUERY SELECT2 INPUT
+//= require plugin/select2/select2
 
 // MAIN APP JS FILE
 //= require app.seed

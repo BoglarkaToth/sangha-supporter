@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2014_06_02_150646) do
+ActiveRecord::Schema.define(version: 2018_09_20_165359) do
 
   create_table "buddhists", force: :cascade do |t|
     t.string "status"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2014_06_02_150646) do
     t.string "local_center"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_buddhists_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -57,6 +59,8 @@ ActiveRecord::Schema.define(version: 2014_06_02_150646) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "administrator"
+    t.integer "buddhist_id"
+    t.index ["buddhist_id"], name: "index_users_on_buddhist_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

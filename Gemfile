@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.1'
 gem 'sqlite3'
 
 
+gem 'jquery-rails'
 # User management
 gem 'devise', '>= 4.0.0'
 
