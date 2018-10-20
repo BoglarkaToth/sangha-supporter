@@ -127,9 +127,24 @@ module ApplicationHelper
     [
         {
             href: root_path,
-            title: _('blank'),
-            content: "<i class='fa fa-lg fa-fw fa-home'></i> <span class='menu-item-parent'>" + _('Blank') + "</span>",
-        },
+            title: _('Dashboard'),
+            content: "<i class='fa fa-lg fa-fw fa-home'></i> <span class='menu-item-parent'>" + _('Dashboard') + "</span>",
+        }, {
+            href: buddhists_path,
+            title: _('Buddhists'),
+            content: "<i class='fa fa-lg fa-fw fa-child'></i> <span class='menu-item-parent'>" + _('Buddhists') + "</span>",
+            children: [
+                {
+                    href: reports_late_payment_path,
+                    title: _('Late Payments Report'),
+                    content: "<i class='fa fa-lg fa-fw fa-child'></i> <span class='menu-item-warning'>" + _('Late Payments') + "</span>",
+                }
+            ]
+        }, {
+            href: payments_path,
+            title: _('Payments'),
+            content: "<i class='fa fa-lg fa-fw fa-money'></i> <span class='menu-item-parent'>" + _('Payments') + "</span>",
+        }
     ]
   end
   def bootstrap_class_for flash_type

@@ -1,6 +1,6 @@
-<h2 class="sub-header">Buddhisták</h2>
+<h2 class="sub-header"><%= _('Buddhists') %></h2>
 <% if params[:search] %>
-  <h4>A keresésed erre a kulcsszóra: <span class="blue_highlight"><%= params[:search] %></span>, az alábbi eredményeket hozta: </h4>
+  <h4><%=  _('Your search result for that keyword brought the following results') %><span class="blue_highlight"><%= params[:search] %> :</span></h4>
   <hr/>
 <% end %>
 <div class="table-responsive">

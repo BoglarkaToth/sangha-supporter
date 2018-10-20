@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
 	<div class="col-sm-12">
-	<h1 class="page-header"><%= @buddhist.name %></h2>
+	<h1 class="page-header"><%= @buddhist.name %></h1>
 	<h2 class="sub-header"><%= @buddhist.email %></h2>
 	</div>
 </div>
@@ -97,9 +97,9 @@
         <span class="feature-icon motorbike-member <%= payment.parking_motorbike %>"></span>
         <span class="feature-icon parking-member <%= payment.parking_car %>"></span>
         </td>
-        <td><%= link_to 'Megnéz', payment, class: 'btn btn-xs btn-info' %></td>
-        <td><%= link_to 'Szerkeszt', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
-        <td><%= link_to 'Töröl', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+        <td><%= link_to 'Show', payment, class: 'btn btn-xs btn-info' %></td>
+        <td><%= link_to 'Edit', edit_payment_path(payment), class: 'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
